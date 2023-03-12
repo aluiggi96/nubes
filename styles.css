@@ -9,41 +9,144 @@ html {
 }
 
 .sky {
-    position: relative;
-    margin: 2rem auto;
-    width: 36rem;
-    height: 36rem;
+    position: absolute;
+    width: 32rem;
+    height: 32rem;
+    inset: 50% 0 0 50%;
+    transform: translate(-50%, -50%);
     background-image: linear-gradient(to bottom, hsl(240 50% 33%), hsl(240 50% 66%));
     border-radius: 50%;
+    overflow: hidden;
 }
 
-.cloud, .layer {
+.cloud {
     position: absolute;
-    inset: 50% 0 0 50%;
-    transform: translate(-50%,-50%);
-}
-
-.layer {
+    height: 6rem;
+    width: 18rem;
     background-color: white;
+    margin: auto;   
+    border-radius: 50px;
+    inset: 16rem auto auto 7rem;
 }
 
-.a {
-    inset: 60% 0 0 50%;
-    width: 100%;
-    height: 40%;
-    border-radius: 40rem;
+.cloud::before {
+    content: '';
+    position: absolute;
+    height: 9rem;
+    width: 9rem;
+    background-color: white;
+    border-radius: 50%;
+    inset: auto auto 2rem 1.5rem;
+    overflow: hidden;
 }
 
-.b {
-    width: 50%;
-    height: 50%;
-    inset: 40% 0 0 40%;
+.cloud::after {
+    content: '';
+    position: absolute;
+    height: 6rem;
+    width: 6rem;
+    background-color: white;
+    border-radius: 50%;
+    inset: auto auto 2.5rem 9rem;
+    overflow: hidden;
+}
+
+.moon {
+    height: 12rem;
+    width: 12rem;
+    position: absolute;
+    border-radius: 50%;
+    background-color: hsl(0 0% 60%);
+    inset: 7rem auto auto 14rem;
+    overflow: hidden;
+    z-index: -1;
+    animation: spin-moon 10s infinite linear;
+}
+
+.moon::after {
+    content: '';
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    background-color: hsl(0 0% 40%);
+    border-radius: 50%;
+    box-shadow: 4.5rem 2rem 0 .4rem hsl(0 0% 40%),
+    9rem 0 0 -0.3rem hsl(0 0% 40%),
+    8rem 7rem 0 0 hsl(0 0% 40%),
+    2rem 8rem 0 1rem hsl(0 0% 40%);
+}
+
+@keyframes spin-moon {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.face {
+    position: absolute;
+    inset: 12rem auto auto 9rem;
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+}
+
+.blush {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-color: hsl(0 0% 75%);
+    border-radius: 50%;
+    inset: 5rem auto auto 1rem;
+}
+
+.blush::after {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    content: '';
+    background-color: hsl(0 0% 75%);
+    position: absolute;
+    inset: auto auto auto 6rem;
     border-radius: 50%;
 }
 
-.c {
-    width: 30%;
-    height: 30%;
-    inset: 45% 0 0 70%;
+.eye {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background-color: black;
+    border-radius: 0 0 50% 50%;
+    inset: 4rem auto auto 3rem;
+}
+
+.eye.r {
+    position: absolute;
+    inset: 4rem auto auto 6rem;
+    overflow: hidden;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: .5rem;
+    height: .75rem;
+    background-color: white;
+    border-radius: 0 0 50% 50%;
+    inset: 0 .25rem;
+}
+
+.snore {
+    position: absolute;
+    width: .5rem;
+    height: .5rem;
+    background-color: black;
     border-radius: 50%;
+    inset: 6rem auto auto 4.75rem;
+    animation: snore 2s infinite alternate;
+}
+
+@keyframes snore {
+    100% {
+        transform: scale(2);
+    }
 }
