@@ -9,14 +9,22 @@ html {
 }
 
 .sky {
-    position: absolute;
+    margin: 2rem auto;
+    position: relative;
     width: 32rem;
     height: 32rem;
-    inset: 50% 0 0 50%;
-    transform: translate(-50%, -50%);
-    background-image: linear-gradient(to bottom, hsl(240 50% 33%), hsl(240 50% 66%));
     border-radius: 50%;
     overflow: hidden;
+}
+
+.title {
+    position: absolute;
+    color: white;
+    background-color: hsla(0, 0%, 50%, 0.5);
+    top: 3rem;
+    margin: auto;
+    width: 100%;
+    text-align: center;
 }
 
 .cloud {
@@ -26,7 +34,9 @@ html {
     background-color: white;
     margin: auto;   
     border-radius: 50px;
-    inset: 16rem auto auto 7rem;
+    inset: 65% auto auto 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
 }
 
 .cloud::before {
@@ -51,16 +61,24 @@ html {
     overflow: hidden;
 }
 
-.moon {
+.moon, .sun {
     height: 12rem;
     width: 12rem;
     position: absolute;
     border-radius: 50%;
+    inset: 9rem auto auto 14rem;
+}
+
+/* Sky Night */
+
+.night {
+    background-image: linear-gradient(to bottom, hsl(240 50% 33%) 50%, hsl(240 50% 66%) 100%);
+}
+
+.moon {
     background-color: hsl(0 0% 60%);
-    inset: 7rem auto auto 14rem;
     overflow: hidden;
-    z-index: -1;
-    animation: spin-moon 10s infinite linear;
+    animation: spin-moon 30s infinite linear;
 }
 
 .moon::after {
@@ -84,10 +102,11 @@ html {
 
 .face {
     position: absolute;
-    inset: 12rem auto auto 9rem;
+    inset: 14rem auto auto 9rem;
     width: 10rem;
     height: 10rem;
     overflow: hidden;
+    z-index: 1;
 }
 
 .blush {
@@ -149,4 +168,30 @@ html {
     100% {
         transform: scale(2);
     }
+}
+
+
+/* Sky Day */
+
+.day {
+    background-image: linear-gradient(to bottom, hsl(220 100% 50%) 33%, hsl(180 100% 80%));
+}
+
+.sun {
+    background-color: hsl(40, 100%, 50%);
+    animation: shine 2.5s infinite alternate;
+}
+
+@keyframes shine {
+    100% {
+        box-shadow: 0 0 2.5rem 1rem hsl(30, 100%, 50%);
+    }    
+}
+
+.shadow {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
 }
