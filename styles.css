@@ -195,3 +195,36 @@ html {
     inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
 }
+
+.day .eye {
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.day .eye::after {
+    width: .5rem;
+    height: .75rem;
+    border-radius: 50%;
+    top: .1rem;
+}
+
+.mouth {
+    position: absolute;
+    width: 2.5rem;
+    height: 1.5rem;
+    background-color: hsl(0, 0%, 0%);
+    border-radius: 0 0 50% 50%;
+    inset: 6.5rem auto auto 3.75rem;
+    overflow: hidden;
+}
+
+.mouth::after {
+    content: '';
+    position: inherit;
+    inset: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: hsl(0, 50%, 75%);
+}
+
