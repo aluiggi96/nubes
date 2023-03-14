@@ -202,10 +202,60 @@ html {
 }
 
 .day .eye::after {
+    content: '';
     width: .5rem;
     height: .75rem;
     border-radius: 50%;
     top: .1rem;
+}
+
+.day .eyelid {
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    background-color: white;
+    inset: 4rem 3rem;
+    transform: translateY(-100%);
+    animation: blink-eye .750s infinite alternate;
+    border-bottom: 1px solid black;
+}
+
+@keyframes blink-eye {
+    0%, 5% {
+        transform: translateY(0);
+    }
+
+    7.5% {
+        transform: translateY(-16.5%);
+    }
+
+    10% {
+        transform: translateY(-33%);
+    }
+
+    15% {
+        transform: translateY(-49.5%);
+        border-bottom: none;
+    }
+    
+    20% {
+        transform: translateY(-66%);
+        border-bottom: none;
+    }
+
+    25% {
+        transform: translateY(-82.5%);
+        border-bottom: none;
+    }
+
+    30%, 100% {
+        transform: translateY(-100%);
+        border-bottom: none;
+    }
+}
+
+.day .eyelid.r {
+    left: 6rem;
 }
 
 .mouth {
