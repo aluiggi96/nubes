@@ -6,9 +6,10 @@
 
 html {
     font-size: 12px;
+    background-color: hsl(0, 0%, 0%);
 }
 
-.sky {
+.sky, .banner {
     margin: 2rem auto;
     position: relative;
     width: 32rem;
@@ -27,18 +28,26 @@ html {
     text-align: center;
 }
 
+.mini-cloud,
 .cloud {
     position: absolute;
     height: 6rem;
     width: 18rem;
     background-color: white;
     margin: auto;   
-    border-radius: 50px;
+    border-radius: 4.16667rem;
     inset: 65% auto auto 50%;
     transform: translate(-50%,-50%);
     z-index: 1;
 }
 
+.mini-cloud {
+    height: 3rem;
+    width: 9rem;
+    z-index: 2;
+}
+
+.mini-cloud::before,
 .cloud::before {
     content: '';
     position: absolute;
@@ -50,6 +59,14 @@ html {
     overflow: hidden;
 }
 
+.mini-cloud::before {
+    height: 4.5rem;
+    width: 4.5rem;
+    bottom: 1rem;
+    left: .75rem;
+}
+
+.mini-cloud::after,
 .cloud::after {
     content: '';
     position: absolute;
@@ -59,6 +76,13 @@ html {
     border-radius: 50%;
     inset: auto auto 2.5rem 9rem;
     overflow: hidden;
+}
+
+.mini-cloud::after {
+    height: 3rem;
+    width: 3rem;
+    bottom: 1.25rem;
+    left: 4.5rem;
 }
 
 .moon, .sun {
@@ -196,11 +220,13 @@ html {
     transform: translate(-50%, -50%);
 }
 
+.boba .eye,
 .day .eye {
     height: 2rem;
     border-radius: 50%;
 }
 
+.boba .eye::after,
 .day .eye::after {
     content: '';
     width: .5rem;
@@ -209,6 +235,7 @@ html {
     top: .1rem;
 }
 
+.boba .eyelid,
 .day .eyelid {
     position: absolute;
     width: 1rem;
@@ -217,7 +244,7 @@ html {
     inset: 4rem 3rem;
     transform: translateY(-100%);
     animation: blink-eye .750s infinite alternate;
-    border-bottom: 1px solid black;
+    border-bottom: 0.08333em solid black;
 }
 
 @keyframes blink-eye {
@@ -254,6 +281,7 @@ html {
     }
 }
 
+.boba .eyelid.r,
 .day .eyelid.r {
     left: 6rem;
 }
@@ -278,3 +306,267 @@ html {
     background-color: hsl(0, 50%, 75%);
 }
 
+/* Boba Drinking */
+
+.banner {
+    background-color: hsl(50, 30%, 50%);
+}
+
+.boba .cloud {
+    top: 50%;
+    left: 60%;
+}
+
+.boba .face {
+    top: 9rem;
+    left: 12rem;
+}
+
+.second-cloud {
+    margin: 0;
+    top: 17.5rem;
+    left: 7.5rem;
+    position: absolute;
+    width: 10rem;
+    height: 15rem;
+}
+
+.boba-tea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -2.25rem;
+    position: absolute;
+    z-index: 1;
+    width: 10rem;
+    height: 10rem;
+    /* Bubble Tea Size */
+    font-size: 2.5px;
+    overflow: hidden;
+
+}
+
+.cup {
+    position: absolute;
+    height: 0;
+    width: 25em;
+    border-top: 15em solid hsla(0, 0%, 100%, 0.3);
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+}
+
+.cup::after {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 15em;
+    border-top: 15em solid hsla(0, 0%, 100%, 0.3);
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+    left: 1.125em;
+}
+
+.lid {
+    position: absolute;
+    width: 26em;
+    height: 2em;
+    background-color: black;
+    margin: -15em auto auto -2.5em;
+}
+
+.lid::after {
+    content: '';
+    position: absolute;
+    width: 25em;
+    height: 1em;
+    background-color: black;
+    top: -1em;
+    left: .5em;
+}
+
+.tea {
+    position: absolute;
+    height: 0;
+    width: 22em;
+    border-top: 8em solid hsla(30, 50%, 15%, .9);
+    border-left: 1.25em solid transparent;
+    border-right: 1.25em solid transparent;
+    margin: -8.5em auto auto -.5em;
+    z-index: -1;
+}
+
+.tea::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 14em;
+    border-top: 15em solid hsla(30, 50%, 15%, .9);
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+    left: 1em;
+}
+
+.straw {
+    position: absolute;
+    height: 45em;
+    width: 2em;
+    background-color: bisque;
+    margin: -31em auto auto 12.5em;
+    transform: rotate(20deg);
+    z-index: -2;
+}
+
+.bubble {
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background-color: hsla(30, 100%, 10%, 1);
+    z-index: 2;
+}
+
+.one {
+    top: 12.5em;
+    left: 2.75em;
+    z-index: 3;
+}
+
+.two {
+    top: 12.5em;
+    left: 5.7em;
+    z-index: 3;
+}
+
+.three {
+    top: 12.5em;
+    left: 7.9em;
+}
+
+.four {
+    top: 12.5em;
+    left: 9.4em;
+}
+
+.five {
+    top: 12.5em;
+    left: 12em;
+    z-index: 3;
+}
+
+.six {
+    top: 12.5em;
+    left: 14.4em;
+    z-index: 3;
+}
+
+.seven {
+    top: 10.5em;
+    left: 3em;
+}
+
+.eigth {
+    top: 10.2em;
+    left: 6.5em;
+    z-index: 3;
+}
+
+.nine {
+    top: 10.5em;
+    left: 9em;
+    z-index: 3;
+}
+
+.ten {
+    top: 10em;
+    left: 12em;
+    z-index: 3;
+}
+
+.eleven {
+    top: 10.5em;
+    left: 14.6em;
+}
+
+.twelve {
+    top: 8.2em;
+    left: 2.2em;
+}
+
+.thirteen {
+    top: 9em;
+    left: 4.5em;
+}
+
+.fourteen {
+    top: 8.6em;
+    left: 10.2em;
+}
+
+.fifteen {
+    top: 8.6em;
+    left: 14em;
+}
+
+.sixteen {
+    top: 8.5em;
+    left: 7.5em;
+}
+
+.seventeen {
+    top: 6.5em;
+    left: 4em;
+}
+
+.eigthteen {
+    top: 6em;
+    left: 6.5em;
+}
+
+.nineteen {
+    top: 6.2em;
+    left: 9em;
+}
+
+.twenty {
+    top: 7.5em;
+    left: 12em;
+    z-index: 3;
+}
+
+.twenty-one {
+    top: 6.5em;
+    left: 15em;
+}
+
+.twenty-two {
+    top: 5.7em;
+    left: 1.9em;
+}
+
+.ice {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    background-color: hsla(180, 50%, 50%, .4);
+    border-radius: 1em;
+}
+
+.ice-one {
+    top: 10em;
+    left: 3.5em;
+    z-index: 2;
+    transform: rotate(45deg);
+}
+
+.ice-two {
+    top: 10em;
+    left: 12.5em;
+    z-index: 2;
+    transform: rotate(10deg);
+}
+
+.ice-three {
+    top: 8em;
+    left: 8em;
+    z-index: 2;
+}
